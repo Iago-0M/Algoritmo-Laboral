@@ -21,10 +21,11 @@
 title: Algoritmo Laboral
 email: iago.otero.moreiras@gmail.com
 description: Soy Iago Otero, abogado en Vigo. En este blog, ofrezco análisis concisos y prácticos sobre la actualidad del Derecho Penal y Laboral. Mi objetivo es darte la información legal que necesitas, sin rodeos.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/algoritmo-laboral" # Si usas un subdirectorio
+url: "https://Iago-0M.github.io" # Sustituye 'tu-usuario'
 twitter_username: AbogadOtero
 linkedin_username: iago0m
+github_username: Iago-0M
 disqus:
   shortname: algoritmolaboral
 
