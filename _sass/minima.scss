@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+// 1. FIX: Importar el módulo de color para corregir el error de la función 'darken()'
+@use "sass:color"; 
+
+// --- DEFINICIÓN DE VARIABLES Y MIXINS (DEBE IR ANTES DE CUALQUIER @IMPORT) ---
+
+// Define defaults for each variable.
+$base-font-family: "LXGWWenKai-Regular", sans-serif !default; 
+$base-font-size:   16px !default;
+$base-font-weight: 400 !default;
+$small-font-size:  $base-font-size * 0.875 !default;
+$base-line-height: 1.5 !default;
+
+$spacing-unit:     30px !default;
+// 2. FIX: Definir $content-width para evitar el error 'Undefined variable'
+$content-width:    940px !default; 
+
+// --- SOBREESCRITURA DE COLORES DE MINIMA CON LA PALETA DE MARCA ---\
+$text-color:       #3a3a3a !default;       // Gris Oscuro (Secundario)
+$background-color: white !default;         // Blanco
+$brand-color:      #008037 !default;       // Verde Principal (Primary)
+$link-color:       $brand-color !default;  // Enlaces usan $primary (Green)
+
+$grey-color:       #a0a0a0 !default;       
+$grey-color-light: #e0e0e0 !default;       
+$grey-color-dark:  #3a3a3a !default;       
+// --- FIN DE SOBREESCRITURA ---
+
+$table-text-align: left !default;
+
+$on-palm:          600px !default;
+$on-laptop:        800px !default;
+
+
+// --- DEFINICIÓN DE MIXINS (para corregir Undefined Mixin) ---
+@mixin relative-font-size($font-size-factor) {
+  font-size: $base-font-size * $font-size-factor;
+}
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin large-media-query($device) {
+  @media screen and (min-width: $device) {
+    @content;
+  }
+}
+
+
+// --- IMPORTACIONES DE ARCHIVOS PERSONALIZADOS ---
+@import "custom";
+@import "post";
+@import "navbar";
+@import "contacto";
+@import "about";  
+
+
+// --- IMPORTACIONES DE ARCHIVOS BASE DE MINIMA ---
+@import
+  "minima/base",
+  "minima/layout",
+  "minima/syntax-highlighting"
+;
+
+
+/* --- CORRECCIÓN DE FONT AWESOME GLOBAL --- */
+.fa-brands,
+.fa-regular,
+.fa-solid,
+.fas, .far, .fab {
+  font-family: 'Font Awesome 6 Free' !important;
+  font-weight: 400;
+}
+
+.fa-solid,
+.fas {
+  font-weight: 900 !important;
+}

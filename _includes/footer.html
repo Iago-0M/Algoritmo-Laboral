@@ -1,0 +1,56 @@
+<footer class="site-footer">
+
+  <div class="wrapper">
+    
+    <div class="footer-col-wrapper">
+      
+      <div class="footer-col footer-col-1">
+        
+        <h4 class="footer-heading">{{ site.title | escape }}</h4> 
+        
+        <p>{{ site.description | escape }}</p>
+
+      </div>
+      
+      <div class="footer-col footer-col-2 social-icons-only">
+        
+        <h4 class="footer-heading">Contacto</h4>
+        <ul class="contact-list">
+            
+            <li>
+                <span class="svg-icon">
+                    {% include icon-phone.svg %} 
+                </span>
+                <a href="tel:690051433">690 05 14 33</a>
+            </li>
+            
+            <li>
+                <span class="svg-icon">
+                    {% include icon-email.svg %} 
+                </span>
+                <a href="mailto:iago.otero.moreiras@gmail.com">iago.otero.moreiras@gmail.com</a>
+            </li>
+            
+            <li>
+                <span class="svg-icon">
+                    {% include icon-location.svg %} 
+                </span>
+                <span>Urzaiz 48 8º derecha 36201 Vigo</span>
+            </li>
+        </ul>
+
+        <h4 class="footer-heading social-media-heading">Redes Sociales</h4>
+        {% include social.html %}
+
+      </div>
+      
+    </div>
+    
+    <div class="footer-copyright">
+      &copy; {{ site.time | date: "%Y" }} {{ site.title | escape }}. 
+      {% if site.author %} Desarrollado por {{ site.author | escape }}. {% endif %}
+    </div>
+
+  </div>
+
+</footer>

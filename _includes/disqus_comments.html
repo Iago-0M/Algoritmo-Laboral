@@ -1,0 +1,27 @@
+{%- if page.comments != false and site.disqus.shortname -%}
+{% comment %}
+  Ahora controlamos la carga con la variable show_disqus_local en _config.yml 
+  (Si existe y es 'true') O en producción.
+{% endcomment %}
+{%- if jekyll.environment == "production" or site.show_disqus_local -%}
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      // Usamos 'page.url | absolute_url' que ya estaba en tu código
+      this.page.url = '{{ page.url | absolute_url }}'; 
+      this.page.identifier = '{{ page.url | absolute_url }}';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://{{ site.disqus.shortname }}.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+{%- endif -%}
+{%- endif -%}

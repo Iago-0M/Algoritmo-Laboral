@@ -1,0 +1,79 @@
+/* --- DEFINICIÓN DE VARIABLES DE MARCA Y ESTRUCTURA DE MINIMA --- */
+$primary: #008037;     // Verde Principal
+$secondary: #3a3a3a;   // Gris Oscuro Principal / Texto
+$white: white;
+$border-light: #e0e0e0; // Gris muy claro para bordes
+$link-nav: #cccccc;
+$navbar-bg: $primary;
+
+// ✅ FONDOS BASE
+
+
+// ✅ CORRECCIÓN: Variables de color de Minima necesarias
+$text-color: #3a3a3a; 
+$grey-color: #a0a0a0;
+$grey-color-light: #e0e0e0; 
+
+/* Variables estructurales de Minima necesarias */
+$base-font-size: 16px; 
+$base-font-family: "LXGWWenKai-Regular", sans-serif; // TU FUENTE
+$base-line-height: 1.75; // Más espacio entre líneas de texto para legibilidad
+$spacing-unit:     40px; // Aumentamos el margen/relleno base (de 30px a 40px)
+$content-width:    940px;
+$on-laptop: 800px; 
+
+/* DEFINICIÓN DEL MIXIN DE MINIMA (ELIMINADA de aquí, movida a minima.scss) */
+
+
+/* ----------------------------------------------------------------- */
+/* --- IMPORTACIONES DE ARCHIVOS PARCIALES --- */
+/* ----------------------------------------------------------------- */
+
+@import "card_post"; 
+@import "footer";
+
+
+
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS GENERALES Y ANULACIONES DE MARGENES --- */
+/* ----------------------------------------------------------------- */
+
+/* Anulación de márgenes globales para navbar y footer de borde a borde */
+body {
+    // Aplicamos la fuente base y la altura de línea
+    font-family: $base-font-family; 
+    line-height: $base-line-height; 
+    margin: 0;
+    padding: 0;
+}
+
+
+.page-content {
+    padding-right: 0; 
+    padding-left: 0; 
+    padding-top: 0; 
+    padding-bottom: 0; 
+}
+
+/* Anula el max-width del wrapper original para usar todo el ancho en page-content */
+.page-content .wrapper {
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+
+/* ----------------------------------------------------------------- */
+/* --- Estilos de Layout --- */
+/* ----------------------------------------------------------------- */
+
+/* Oculta el menú hamburguesa en escritorio (Desktop-first) */
+@media screen and (min-width: 800px) {
+    .nav-trigger, .site-header label[for="nav-trigger"] {
+        display: none !important;
+    }
+
+    .site-nav .trigger {
+        display: block !important; 
+    }
+}

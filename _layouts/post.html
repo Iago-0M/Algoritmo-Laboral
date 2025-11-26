@@ -1,0 +1,114 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    
+    {% if page.icon %}
+    <i class="fa-solid fa-{{ page.icon }} post-icon" aria-hidden="true"></i>
+    {% endif %}
+    
+    <h1 class="post-title p-name post-title-header" itemprop="name headline">{{ page.title | escape }}</h1>
+    
+    {% if page.subtitle %}
+    <h2 class="post-subtitle-header">{{ page.subtitle | escape }}</h2>
+    {% endif %}
+
+    <div class="header-metadata">
+        <div class="metadata-grid">
+            <div class="metadata-col metadata-left">
+                <div class="metadata-row">
+                    <span class="meta-item">
+                        <i class="fa-solid fa-calendar-alt"></i> 
+                        {{ page.date | date: "%d/%m/%Y" }}
+                    </span>
+                    {% if page.author %}
+                    <span class="meta-item">
+                        <i class="fa-solid fa-user"></i> 
+                        {{ page.author }}
+                    </span>
+                    {% endif %}
+                    {% assign category_name = page.categories | first | default: page.category %}
+                    {% if category_name %}
+                    <span class="meta-item">
+                        <i class="fa-solid fa-tag"></i> 
+                         {{ category_name | capitalize }}
+                    </span>
+                    {% endif %}
+                </div>
+                
+                <div class="metadata-row tags-row">
+                    {% if page.tags.size > 0 %}
+                    <span class="meta-item">
+                        <i class="fa-solid fa-tags"></i> 
+                        Tags: 
+                        {% for tag in page.tags %}
+                            {{ tag }}{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="metadata-col metadata-center">
+                </div>
+            
+            <div class="metadata-col metadata-right">
+                <div class="metadata-row">
+                    <a href="#disqus_thread" class="meta-item comments-link">
+                        <i class="fa-solid fa-comment-dots"></i> 
+                        <span class="disqus-comment-count" data-disqus-identifier="{{ page.url }}">0 Comentarios</span>
+                    </a>
+                    <span class="meta-item share-action" id="share-action-button" data-url="{{ page.url | absolute_url }}" data-title="{{ page.title | escape }}">
+                      <i class="fa-solid fa-share-alt"></i> 
+                    </span>
+                </div>
+                
+                <div class="metadata-row download-row">
+                  <a href="javascript:void(0);" id="downloadPdfButton" class="btn-download-pdf">
+                    <i class="fa-regular fa-file-pdf"></i>
+                     <span>Guardar</span>
+                    <i class="fa-regular fa-file-pdf"></i>
+                       
+                  </a>
+</div>
+            </div>
+            
+        </div>
+        
+    </div>
+    </header>
+  
+  <div class="post-content e-content entry-content h-entry" itemprop="headerBody">
+  <div class="ladder-style-content">
+    {{ content }}
+  </div>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  
+  {%- if site.disqus.shortname -%}
+    <script id="dsq-count-scr" src="//{{ site.disqus.shortname }}.disqus.com/count.js" async></script>
+  {%- endif -%}
+</article>
+
+<!-- javascript -->
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var downloadButton = document.getElementById('downloadPdfButton');
+    
+    if (downloadButton) {
+        downloadButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Previene cualquier acción por defecto del enlace
+            // Dispara el diálogo de impresión del navegador
+            window.print(); 
+        });
+    }
+});
+</script>
+{% include share_script_logic.html %}

@@ -1,0 +1,103 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "Últimos Artículos" }}</h2>
+    <ul class="post-list">
+    {% for post in site.posts limit: site.minima.show_posts %}
+      
+      <li class="post-item">
+        
+          {% comment %} 1. SECCIÓN PRINCIPAL DE ICONO Y COLOR ($primary) {% endcomment %}
+          {% if post.icon %} 
+            <div class="post-thumbnail">
+              <a href="{{ post.url | relative_url }}" class="icon-link-container">
+                
+                <i class="fa-solid fa-{{ post.icon }} post-fa-icon-large" 
+                   aria-hidden="true">
+                </i>
+                
+              </a>
+              
+              <span class="meta-date-circle">
+                  <span class="meta-day">{{ post.date | date: "%-d" }}</span>
+                  <span class="meta-month">{{ post.date | date: "%b" }}</span>
+              </span>
+              
+              {% assign category_name = post.categories | first | default: post.category %}\
+              {% if category_name %}
+                  {% comment %} LÓGICA DE CLASE PARA COLORES CONDICIONALES {% endcomment %}
+                  {% assign category_class = "" %}
+                  {% if category_name contains "Penal" %}
+                      {% assign category_class = "category-penal" %}
+                  {% endif %}
+                  
+                  <span class="meta-category-tag {{ category_class }}">
+                      {{ category_name | capitalize }}
+                  </span>
+              {% endif %}
+              
+            </div>
+          {% endif %}
+          
+          {% comment %} 2. CONTENIDO DE TEXTO (Pie de tarjeta) {% endcomment %}
+          <div class="post-content-summary">
+            
+            <div class="post-status-line">
+                
+                {% assign words = post.content | number_of_words %}
+                {% assign reading_time = words | divided_by: 180 | plus: 1 %}
+                
+                <span class="reading-time">
+                    <i class="fas fa-clock"></i> {{ reading_time }} min
+                </span>
+                
+                <span class="status-separator"> • </span>
+                <a href="{{ post.url | relative_url }}#disqus_thread" class="comments-count">
+                    <i class="fas fa-comment-dots"></i> 0 Comentarios
+                </a>
+                
+                <span class="status-separator"> • </span>
+                <span class="meta-item share-action" id="share-action-button" data-url="{{ page.url | absolute_url }}" data-title="{{ page.title | escape }}">
+                      <i class="fa-solid fa-share-alt"></i> 
+                    </span>
+                
+            </div>
+            
+            <div class="card-footer-meta">
+              
+              <h1 class="post-title-card">
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                  {{ post.title | escape }}
+                </a>
+              </h1>
+              
+              {% if post.subtitle %}
+                <h3 class="post-subtitle">{{ post.subtitle | escape }}</h3>
+              {% endif %}
+              
+            </div>
+            
+            <div class="post-read-more-action">
+              <a href="{{ post.url | relative_url }}" class="read-more-link">Leer más &rarr;</a>
+            </div>
+      
+          </div>
+      </li>
+        
+    {% endfor %}
+    </ul>
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%}
+  
+{% include share_script_logic.html %}
+</div>

@@ -1,0 +1,26 @@
+---
+layout: default
+title: Posts por Etiquetas
+permalink: /etiquetas/
+---
+
+<div class="tags-index">
+  <h1>{{ page.title }}</h1>
+  
+  {% assign sorted_tags = site.tags | sort %}
+
+  {% for tag in sorted_tags %}
+    {% assign tag_name = tag | first %}
+    {% assign posts = tag | last %}
+    
+    <h2 id="{{ tag_name | slugify }}">{{ tag_name }} ({{ posts | size }})</h2>
+    
+    <ul class="tag-post-list">
+      {% for post in posts %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+    
+    <hr>
+  {% endfor %}
+</div>

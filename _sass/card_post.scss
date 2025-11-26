@@ -1,0 +1,294 @@
+/* ----------------------------------------------------------------- */
+/* --- Sección de Lista de Posts (Grid Responsive) --- */
+/* ----------------------------------------------------------------- */
+@use "sass:color"; // Importación requerida para usar color.adjust
+.post-list {
+  list-style: none;
+  padding: 0 $spacing-unit; 
+  display: grid;
+  gap: $spacing-unit; 
+  margin-bottom: $spacing-unit;
+  max-width: 1200px; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .post-list { grid-template-columns: repeat(3, 1fr); }
+}
+@media screen and (min-width: 601px) and (max-width: 1023px) {
+    .post-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media screen and (max-width: 600px) {
+    .post-list { grid-template-columns: 1fr; padding: 0 15px; }
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Estilos de Tarjeta (post-item) --- */
+/* ----------------------------------------------------------------- */
+
+.post-item {
+  display: flex !important; 
+  flex-direction: column; 
+  
+  /* PROPORCIÓN 2:1 (Alto:Ancho) - Usamos vh para forzar la altura */
+  min-height: 80vh; 
+  flex-grow: 1; 
+
+  background-color: $white; 
+  border: 1px solid $border-light; 
+  border-radius: 8px;
+  overflow: hidden; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  
+  transition: all 0.4s ease-out; 
+  
+  &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      
+      /* ✅ CAMBIO DE HOVER: Summary 66% / Thumbnail 33% */
+      .post-content-summary {
+          flex: 1 1 66%; /* Summary toma el 66% de la altura */
+      }
+      .post-thumbnail {
+          flex: 0 0 33%; /* Thumbnail se reduce al 33% de la altura */
+      }
+      /* Subtítulo visible al hacer hover */
+      h3.post-subtitle {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Sección de Icono/Fondo (post-thumbnail) --- */
+/* ----------------------------------------------------------------- */
+.post-thumbnail {
+  position: relative; 
+  overflow: hidden; 
+  /* ✅ ESTADO NORMAL: Ocupa el 60% de la altura total */
+  flex: 0 0 60%; 
+  min-height: 0; 
+  transition: flex 0.4s ease-out;
+  
+  background-color: $primary; 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a.icon-link-container {
+      display: flex; 
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      
+      color: $secondary;
+      
+      /* Eliminar el subrayado/borde del link en hover */
+      text-decoration: none; 
+      border: none;
+      
+      &:hover {
+          text-decoration: none;
+      }
+  }
+
+    /* Icono de Font Awesome GRANDE (Color $secondary) */
+    .post-fa-icon-large {
+        color: $secondary;   
+        font-size: 6em;     
+        font-weight: 900 !important; 
+        transition: transform 0.3s ease;
+    }
+}
+
+/* Efecto de crecimiento en hover */
+.post-item:hover .post-fa-icon-large {
+  transform: scale(1.1); 
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Metadatos sobre la Imagen (Fecha y Categoría) --- */
+/* ----------------------------------------------------------------- */
+.meta-date-circle {
+    position: absolute;
+    top: 15px; right: 15px;
+    width: 45px; height: 45px;
+    background-color: rgba($secondary, 0.9); 
+    color: $white;
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    line-height: 1.1; z-index: 10;
+    .meta-day { font-weight: bold; font-size: 1.2em; }
+    .meta-month { font-size: 0.7em; text-transform: uppercase; }
+}
+
+/* ESTILOS CONDICIONALES DE CATEGORÍA */
+.meta-category-tag {
+    position: absolute;
+    bottom: 15px; left: 15px;
+    padding: 4px 8px;
+    font-weight: bold; font-size: 0.9em;
+    text-transform: uppercase; border-radius: 4px; z-index: 10;
+    border: 1px solid $border-light; 
+
+    /* COLORES POR DEFECTO (Laboral/General) */
+    background-color: $white; 
+    color: $secondary; 
+}
+
+/* ESTILO CONDICIONAL: CATEGORÍA PENAL */
+.meta-category-tag.category-penal {
+    background-color: $secondary;
+    color: $white;
+    border-color: $secondary;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Sección de Contenido de Texto (post-content-summary) --- */
+/* ----------------------------------------------------------------- */
+
+.post-content-summary {
+  /* ✅ ESTADO NORMAL: Ocupa el 40% restante de la altura */
+  flex: 1 1 40%; 
+  background-color: $white; 
+  z-index: 2; 
+  transition: flex 0.4s ease-out;
+  padding: $spacing-unit / 2; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between; 
+  text-align: center; 
+  overflow-y: hidden; 
+}
+
+/* --- Estilos para el Pie de Tarjeta (Título, Subtítulo y Metadata) --- */
+
+.card-footer-meta {
+    border-top: none; 
+    padding-top: 10px; 
+    padding-bottom: $spacing-unit / 2;
+    text-align: center;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+}
+
+/* Título principal (h1) */
+.post-content-summary .post-title-card {
+    height: 3em; 
+    width: 100%;
+    display: -webkit-box; 
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
+    
+    font-size: 2em; 
+    font-weight: 600;
+    margin: 0; 
+    line-height: 1.5; 
+    
+    .post-link {
+        font-size: inherit; 
+        color: $primary; 
+        text-decoration: none;
+        &:hover { color: color.adjust($primary, $lightness: -10%); }
+    }
+}
+
+/* Subtítulo (h3) */
+h3.post-subtitle {
+    font-size: 1.5em;
+    color: $secondary;
+    margin-top: 5px;
+    margin-bottom: 0; 
+    
+    /* Oculto por defecto, con transición */
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    
+    /* Resetear estilos base de H3 */
+    font-weight: normal; 
+    line-height: 1.2;
+}
+
+
+/* Línea de tiempo de lectura y comentarios (post-status-line) */
+.post-status-line {
+    font-size: 0.9em; 
+    color: $secondary; 
+    padding: 0 5px 10px 5px; 
+    
+    display: flex; 
+    justify-content: space-around; 
+    align-items: center; 
+    
+    /* ICONOS PEQUEÑOS (Pie de tarjeta) */
+    i.fas, i.fa-solid, i.fa { 
+        font-family: 'Font Awesome 6 Free' !important; 
+        font-weight: 900 !important; 
+        font-size: 1.1em !important; 
+        color: $secondary !important; 
+        margin-right: 4px; 
+        display: inline-block !important; 
+        line-height: 1; 
+        
+        font-style: normal;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .status-separator { display: none; }
+    
+    .reading-time, .comments-count, .share-icon-container {
+        display: flex; 
+        align-items: center;
+        text-decoration: none;
+        color: $secondary; 
+        
+        &:hover {
+            color: $primary;
+            i.fas, i.fa-solid, i.fa { color: $primary !important; }
+        }
+    }
+    
+    .reading-time { font-weight: 500; }
+    .share-icon-container { cursor: pointer; }
+}
+
+/* Botón 'Leer más' (Minimalista: Enlace simple) */
+.post-read-more-action {
+  margin-top: $spacing-unit / 2; 
+  margin-bottom: $spacing-unit / 2; 
+  text-align: center; 
+  
+  /* ✅ OCULTAR POR DEFECTO: */
+  opacity: 0; 
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* Deshabilita el clic cuando está oculto */
+}
+
+/* MOSTRAR EN HOVER DE LA TARJETA */
+.post-item:hover .post-read-more-action {
+  opacity: 1;
+  pointer-events: auto; /* Habilita el clic al estar visible */
+}
+
+.read-more-link {
+    display: inline-block;
+    padding: 8px 0px; 
+    background-color: transparent; 
+    color: $primary !important; 
+    text-decoration: underline; 
+    border: none; border-radius: 0;
+    font-size: 0.9em; font-weight: bold;
+    transition: color 0.2s ease;
+    &:hover { color: color.adjust($primary, $lightness: -10%) !important; background-color: transparent; } 
+}

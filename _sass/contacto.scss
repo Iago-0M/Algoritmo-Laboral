@@ -1,0 +1,233 @@
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS GENERALES Y ESTRUCTURALES --- */
+/* ----------------------------------------------------------------- */
+
+.contact-page {
+    /* Por defecto en móvil */
+    padding: 20px;
+}
+
+.page-heading {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS DE LA TARJETA DE CONTACTO Y LOS ÍTEMS (RECUADROS) --- */
+/* ----------------------------------------------------------------- */
+
+.contact-card {
+    background-color: var(--blanco);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+}
+
+.contact-card h2 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border-radius: 6px; 
+    background-color: #f9f9f9; 
+    
+    /* MODIFICACIÓN: Borde con color secundario (similar al $secondary) */
+    border: 1px solid var(--color-secundary); 
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    border-color: var(--color-primary); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.contact-icon {
+    color: var(--color-primary); 
+    font-size: 1.2rem;
+    min-width: 30px; 
+    text-align: center;
+}
+
+.contact-label {
+    font-weight: bold;
+    color: var(--color-secundary);
+    margin-left: 10px;
+    margin-right: 5px;
+    white-space: nowrap; 
+}
+
+.contact-value, 
+.contact-value a {
+    color: var(--color-secundary);
+    text-decoration: none;
+    flex-grow: 1; 
+    word-break: break-word; 
+    font-size: 1rem;
+}
+
+.contact-value a:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
+}
+
+
+/* --- ESTILOS PARA EL MAPA --- */
+.map-container {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.map-container iframe {
+    display: block; 
+}
+
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS DEL FORMULARIO DE CONTACTO (ADAPTACIÓN CODEPEN) --- */
+/* ----------------------------------------------------------------- */
+
+.contact-form-container {
+    padding: 30px 0; 
+    margin-top: 30px;
+}
+
+.ContactForm {
+    position: relative;
+    /* REDUCCIÓN DE ANCHURA: Controla el ancho del formulario, centrándolo en la columna */
+    max-width: 500px; 
+    margin: 0 auto; 
+    padding: 40px;
+    background-color: var(--blanco);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+    
+    h2 {
+        text-align: center;
+        color: var(--color-primary); 
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+    }
+}
+
+.input-field {
+    position: relative;
+    margin-bottom: 25px;
+    border: 3px solid $secondary;
+}
+.input #name {
+    margin:auto;
+    color:red;
+    border: 3px solid $secondary;}
+
+/* Estilo base para Input y Textarea */
+.input-field input, 
+.input-field textarea {
+    font-family: inherit;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--border-color); 
+    padding: 10px 8px;
+    font-size: 1rem;
+    color: var(--color-secundary); 
+    background: transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+
+/* Efecto de foco: cambia el color del borde a primario (VERDE) */
+.input-field input:focus, 
+.input-field textarea:focus {
+    outline: none;
+    border-bottom-color: var(--color-primary);
+}
+
+/* Estilo base para el Label (Etiqueta) */
+.input-field label {
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    color: var(--color-secundary);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* TEXTAREA ajuste inicial de la etiqueta */
+.message-field label {
+    top: 10px;
+}
+
+/* ESTADO FLOTANTE DE LA ETIQUETA */
+.input-field input:focus + label,
+.input-field textarea:focus + label,
+.input-field input:not(:placeholder-shown) + label,
+.input-field textarea:not(:placeholder-shown) + label {
+    transform: translateY(-20px) scale(0.8); 
+    color: var(--color-primary); 
+    background-color: var(--blanco);
+    padding: 0 5px;
+}
+
+/* Estilo del botón de enviar */
+.SubmitButton {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 30px;
+    background-color: var(--color-primary);
+    color: var(--blanco);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.SubmitButton:hover {
+    background-color: var(--color-secundary); 
+}
+
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS DE GRID DE DOS COLUMNAS (ESCRITORIO) --- */
+/* ----------------------------------------------------------------- */
+
+@media (min-width: 900px) {
+    
+    .contact-page {
+        /* CENTRADO Y MARGEN AMPLIADO: Hace que la página no ocupe todo el ancho */
+        max-width: 1200px;
+        margin: 0 auto; 
+        padding: 40px 20px;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 35% 65%; 
+        gap: 40px; /* Espacio ampliado entre columnas */
+        align-items: start; 
+    }
+
+    .contact-info-col {
+        display: flex;
+        flex-direction: column;
+        gap: 40px; 
+    }
+    
+    .contact-form-container {
+        /* Eliminamos el padding y margen horizontal de móvil para que el formulario se centre bien en la columna */
+        padding: 0; 
+        margin: 0;
+    }
+}

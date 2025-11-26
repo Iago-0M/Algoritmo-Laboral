@@ -1,0 +1,60 @@
+---
+---
+@import "minima"; 
+
+/*
+  ✅ DEFINICIONES FINALES DE VARIABLES
+  Aseguramos que TODAS las variables utilizadas estén definidas aquí.
+*/
+$primary:       #008037;      // Tu $brand-color
+$secondary:     #3a3a3a;      // Tu $text-color
+
+// Variables estructurales de Minima sobrescritas:
+$spacing-unit:  40px;         // Tu $spacing-unit
+$base-line-height: 1.75;      // Tu $base-line-height
+
+// Variables de Color faltantes, esenciales para card_post.scss:
+$white:         white;        
+$border-light:  #e0e0e0;      
+$grey-color:    #a0a0a0;      
+
+
+/*
+  Añadimos las declaraciones de fuentes y el selector global
+*/
+
+html,
+body {
+  font-family: "LXGWWenKai-Regular", sans-serif;
+}
+
+/* FUENTES */
+@font-face {
+  font-family: "LXGWWenKai-Regular";
+  font-display: block;
+  /* RUTA ABSOLUTA: Asume que el archivo .ttf está en la carpeta /assets/fonts */
+  src: url("/assets/fonts/LXGWWenKai-Regular.ttf") format("truetype"); 
+  font-named-instance: "Regular";
+}
+
+@font-face {
+  font-family: "LXGWWenKai-Blod";
+  font-display: block;
+  /* RUTA ABSOLUTA: Asume que el archivo .ttf está en la carpeta /assets/fonts */
+  src: url("/assets/fonts/LXGWWenKai-Bold.ttf") format("truetype");
+  font-named-instance: "Blod";
+}
+
+/* IMPORTACIÓN DE TUS ESTILOS ESPECÍFICOS: */
+
+// 1. custom-layout (donde está el mixin) VA PRIMERO
+@import "custom-layout"; 
+
+// 2. Luego importamos los que usan ese mixin (como footer)
+@import "post";
+@import "card_post"; 
+@import "footer";
+
+// ❌ CORRECCIÓN FONT AWESOME: La importación SCSS ha sido eliminada.
+// La incluiremos vía CDN para evitar errores de compilación.
+// @import "font-awesome"; // <-- ELIMINADA ESTA LÍNEA

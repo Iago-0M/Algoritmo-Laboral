@@ -1,0 +1,145 @@
+// Archivo: _sass/footer.scss
+
+/*
+ * Estilos personalizados para el Footer
+ * * NOTA IMPORTANTE: Se asume que has incluido la definición de variables 
+ * ($secondary, $white, $spacing-unit, etc.) y el mixin `relative-font-size` 
+ * en la parte superior de _sass/custom.scss para evitar el error de compilación.
+*/
+
+.site-footer {
+    background-color: $secondary; /* Fondo Gris Oscuro Principal */
+    color: $white;                /* Texto Blanco */
+    border-top: 1px solid $border-light;
+    
+    // Altura reducida
+    padding: $spacing-unit * 0.75 0; /* Espaciado vertical compacto */
+
+    // Estilos para los encabezados (h4)
+    .footer-heading {
+        color: $primary; /* ✅ CAMBIO: Títulos ahora en Verde Principal */
+        margin-bottom: $spacing-unit * 0.35; 
+        @include relative-font-size(1.2); 
+    }
+
+    // Quitar márgenes de párrafos y listas para un layout compacto
+    p, ul {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 0; 
+      list-style: none; // Quita los puntos de lista
+    }
+    
+    // Corregido el color de los párrafos (descripción) y listas
+    p, ul, a {
+        color: $white; 
+    }
+    
+    // Estilo para los enlaces
+    a {
+        text-decoration: none;
+        &:hover {
+            color: lighten($white, 15%);
+            text-decoration: underline;
+        }
+    }
+    
+    // Estilo para los iconos SVG (contacto y redes)
+    .svg-icon {
+        fill: $primary; 
+        margin-right: 10px;
+        width: 16px; 
+        height: 16px;
+        min-width: 16px; 
+    }
+
+    // Estilo para los elementos de lista de Contacto
+    .contact-list li {
+      margin-bottom: 0.5em; 
+      display: flex; 
+      align-items: center;
+      line-height: 1.4;
+    }
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Layout de 2 Columnas para Escritorio (Minima 800px) --- */
+/* ----------------------------------------------------------------- */
+
+@media screen and (min-width: #{$on-laptop}) {
+  
+  .footer-col-wrapper {
+    display: flex; 
+    justify-content: space-between; 
+    max-width: $content-width; 
+    margin: 0 auto;
+    padding: 0 $spacing-unit;
+  }
+
+  // Definición de anchos para las 2 columnas (50% cada una)
+  .footer-col {
+    width: 50%; 
+    padding: 0 $spacing-unit * 0.5; 
+    text-align: center; /* Centra todo el texto de las columnas 1 y 2 */
+  }
+  
+  // Lista de Contacto (Teléfono, Email, Dirección)
+  .social-icons-only .contact-list {
+      display: inline-block; 
+      text-align: left; 
+  }
+
+  // Alineación del texto dentro de la lista de contacto
+  .social-icons-only .contact-list li {
+      justify-content: center; /* Centra el elemento li (icono + info) */
+  }
+  
+  // Alineación de las Redes Sociales
+  .social-media-list {
+    text-align: center; 
+  }
+
+  .social-media-list li {
+      display: inline-block; 
+      margin: 0 5px; 
+  }
+  
+  .social-media-heading {
+      margin-top: $spacing-unit * 0.5;
+  }
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Estilos para el Copyright --- */
+/* ----------------------------------------------------------------- */
+.footer-copyright {
+    text-align: center;
+    margin-top: $spacing-unit * 0.75; 
+    color: $white; 
+    font-size: 0.8em; 
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Estilos para Móviles (Apilamiento vertical) --- */
+/* ----------------------------------------------------------------- */
+
+@media screen and (max-width: #{$on-laptop}) {
+    .site-footer {
+        text-align: center;
+    }
+    .footer-col-wrapper {
+        padding: 0 $spacing-unit; 
+    }
+    .footer-col:not(:last-child) {
+        margin-bottom: $spacing-unit;
+    }
+    .social-icons-only {
+        text-align: center;
+    }
+    .social-icons-only .contact-list {
+        margin: 0 auto; 
+    }
+    .social-icons-only .contact-list li {
+        justify-content: center; 
+    }
+}

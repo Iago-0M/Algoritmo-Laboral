@@ -1,0 +1,512 @@
+/* VARIABLES DE MARCA SIMPLIFICADAS */
+
+:root {
+  /* Colores de Marca */
+  --color-primary: #008037;
+  --color-secundary: #3a3a3a;
+  --blanco: white;
+  
+  /* Variables de Tipografía */
+  --base-rem-px: 16px;
+  --monospace: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+
+
+  /* --- Mapeo de Colores para Jekyll/Minima/Contenido --- */
+  
+  /* Fondo del sitio (usado en minima) */
+  --background-color: var(--blanco); 
+  
+  /* Color principal de la tipografía (usado en minima) */
+  --text-color: var(--color-secundary);
+  
+  /* Color de los enlaces */
+  --brand-color: var(--color-primary); 
+  
+  /* Títulos y contenido resaltado */
+  --heading-color: var(--color-secundary);
+  
+  /* Color del borde o línea suave */
+  --border-color: #e0e0e0;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Encabezado del Post (Contenedor y Título) --- */
+/* ----------------------------------------------------------------- */
+
+.post-header {
+    background-color: var(--color-primary); 
+    color: var(--blanco); 
+    border: 10px solid var(--color-primary);
+    
+    /* Limitar ancho y centrarlo */
+    max-width: 1000px; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 2rem;
+    
+    /* Padding para que el contenido no toque los bordes */
+   
+    
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Icono (Variable 'icon' del front matter) --- */
+/* ----------------------------------------------------------------- */
+
+.post-icon {
+    font-size: 6em; 
+    color: var(--blanco);
+    margin-bottom: 1rem;
+    font-family: 'Font Awesome 6 Free' !important; 
+    font-weight: 900 !important; 
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Título (h1) y Subtítulo (h2) --- */
+/* ----------------------------------------------------------------- */
+
+.post-title-header {
+    color: var(--blanco); 
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2.5em; 
+}
+
+.post-subtitle-header {
+    color: var(--blanco);
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 1.5em; 
+    font-weight: 400;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Icono (Variable 'icon' del front matter) --- */
+/* ----------------------------------------------------------------- */
+
+.post-icon {
+    font-size: 6em; 
+    color: var(--blanco);
+    margin-bottom: 1rem;
+    /* Aseguramos que el icono sea Font Awesome */
+    font-family: 'Font Awesome 6 Free' !important; 
+    font-weight: 900 !important; 
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Título (h1) y Subtítulo (h2) --- */
+/* ----------------------------------------------------------------- */
+
+.post-title-header {
+    /* Título: Usa la variable de título, pero aseguramos el color $secondary */
+    color: var(--blanco); 
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2.5em; 
+    /* Hereda font-family y font-weight de las reglas h1 generales */
+}
+
+.post-subtitle-header {
+    /* Subtítulo */
+    color: var(--blanco);
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 1.5em; 
+    font-weight: 400;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Metadatos (Fecha, Autor, etc.) --- */
+/* ----------------------------------------------------------------- */
+
+.post-meta-header {
+    color: var(--color-secundary);
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- Caja de Metadatos del Artículo (header-metadata) --- */
+/* ----------------------------------------------------------------- */
+
+.header-metadata {
+    /* Mantenemos tus estilos (Borde 5px $secondary y fondo blanco) */
+    border: 5px solid var(--color-secundary);
+    box-shadow: none;
+    background-color: var(--blanco);
+    
+    /* ✅ FIX DEL DESPLAZAMIENTO: Usar max-width y margin: auto para centrar */
+    max-width: 1000px; /* Limita al ancho del post-header (o el que uses) */
+    width: 90%; /* Ancho ligeramente menor que el 100% para evitar desbordamiento */
+    margin: 1.5rem auto; /* Centra el bloque horizontalmente */
+    
+    padding: 15px 30px; /* Padding interno */
+    text-align: left; /* Alineación del texto dentro de las columnas */
+}
+
+/* --- ESTRUCTURA DE LA CAJA: 3 Columnas (Flexbox) --- */
+
+.metadata-grid {
+    display: flex; /* Usamos Flexbox para el diseño de 3 columnas */
+    justify-content: space-between; /* Espacia las columnas */
+    align-items: flex-start; /* Alinea las filas al inicio */
+    width: 100%;
+}
+
+.metadata-col {
+    /* Definimos los anchos de las 3 columnas */
+    &.metadata-left {
+        flex: 1.2 1 0; /* Columna izquierda (más grande para texto) */
+        padding-right: 15px;
+    }
+    &.metadata-center {
+        flex: 0.3 1 0; /* Columna central (más pequeña para espacio) */
+    }
+    &.metadata-right {
+        flex: 1 1 0; /* Columna derecha (interacción) */
+        padding-left: 15px;
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Alinea los elementos internos a la derecha */
+    }
+}
+
+/* --- FILAS Y ELEMENTOS METADATA --- */
+
+.metadata-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 5px 0;
+    width: 100%; /* Ocupa todo el ancho de la columna */
+}
+
+/* Alineación de las filas en la columna derecha */
+.metadata-right .metadata-row {
+    justify-content: flex-end; /* Alinear a la derecha los elementos de interacción */
+}
+
+.meta-item {
+    color: var(--color-secundary);
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.meta-item i {
+    color: var(--color-primary); /* Iconos verdes */
+    margin-right: 5px;
+    font-size: 1.1em;
+}
+
+/* --- ESTILOS DEL BOTÓN DESCARGA PDF --- */
+
+.btn-download-pdf {
+    background-color: var(--color-primary); 
+    color: var(--blanco) !important;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border:solid var(--color-secundary) 3px;
+    text-decoration: none !important;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    display: flex; /* Para centrar el icono y texto */
+    align-items: center;
+    
+    span{margin-right:10px}
+
+    &:hover {
+        background-color: var(--color-secundary);
+        border:solid var(--color-primary) 3px;
+    }
+    i {
+        margin-right: 8px; /* Espacio para el icono de PDF */
+        color: var(--blanco) !important; /* Asegurar que el icono sea blanco */
+    }
+}
+/* ------------------------------------------------ */
+/* --- ESTILOS ESPECÍFICOS DE CONTENIDO DE POST --- */
+/* ------------------------------------------------ */
+
+/* Párrafos (p) */
+p {
+  color: var(--color-secundary); /* REGLA ESPECÍFICA SOLICITADA */
+}
+
+/* Encabezados (h1, h2, h3, etc.) */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  font-family: "LXGWWenKai-Blod"; /* Manteniendo tu fuente bold para títulos */
+}
+
+
+/* Enlaces */
+a {
+  color: var(--brand-color);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #00b34d; /* Un verde ligeramente más brillante en hover, si lo deseas */
+  text-decoration: underline;
+}
+
+/* Citas en bloque (Blockquotes) */
+blockquote {
+  border-left: 4px solid var(--color-primary);
+  color: var(--color-secundary);
+  opacity: 0.85;
+}
+
+/* Códigos en línea */
+code, pre {
+  background-color: #f5f5f5; /* Gris muy claro para bloques de código */
+  border: 1px solid var(--border-color);
+}
+
+
+/* --- Tipografía (Asegurando que los títulos usan la fuente bold) --- */
+
+.post-header .post-title, 
+.post-list-heading,
+.site-title,
+.footer-heading {
+  font-family: "LXGWWenKai-Blod";
+}
+
+
+/* --- Estilos para la tabla de contenido o resumen (Si aplica) --- */
+
+.ladder-style-content {
+  border: 1px solid var(--border-color);
+  background-color: var(--blanco);
+  padding: 1.5em;
+  margin-bottom: 2em;
+  border-radius: 4px;
+}
+
+/* headings */ 
+h1 {
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  line-height: 4rem;
+  letter-spacing: -1.5px;
+  text-align: center;
+}
+
+h2 {
+  color: var(--color-primary);
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin: 2rem auto;
+  line-height: 2rem;
+}
+ 
+h3 {
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin: 1.5rem auto;
+  line-height: 1.5rem;
+}
+
+h4{
+  font-size: 1.4rem;
+  text-decoration: underline;
+  text-decoration-color: var(---color-primary);
+  text-underline-offset: 1px;
+  margin:1.3rem auto;
+  line-height: 1.5rem;}
+
+h5 {
+  font-size: 1.2rem;
+  font-weight:bold;
+  line-height: 1rem;
+  text-decoration: underline overline;
+  text-decoration-color: var(--color-primary);
+}
+h6 {
+  font-size: 1rem;
+  margin: 1.5rem 2rem;
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary);
+}
+
+small {
+  font-size: 70%;
+ }
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+  background-color: var(--border-color);
+}
+
+#typora-source {
+  font-family: var(--monospace);
+  color: var(--color-secundary);
+}
+
+#typora-source .cm-header,
+#typora-source .cm-tag {
+  color: var(--color-primary);
+}
+
+#typora-source .cm-link,
+#typora-source .cm-string,
+#typora-source .cm-atom {
+  color: var(--color-secundary);
+}
+
+#typora-source .cm-comment {
+  color: #888;
+}
+
+.file-list-item-file-ext-part {
+  opacity: 0.5;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- SECCIÓN DE COMENTARIOS DISQUS --- */
+/* ----------------------------------------------------------------- */
+
+/* Contenedor principal del módulo Disqus */
+#disqus_thread {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: #f7f7f7; /* Fondo ligeramente gris para separarlo del contenido blanco */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS DEL DIÁLOGO DE COMPARTIR --- */
+/* ----------------------------------------------------------------- */
+
+.share-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; // Asegurarse de que esté por encima de todo
+}
+
+.share-dialog-box {
+    background: var(--blanco);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.share-dialog-box h3 {
+    color: var(--color-secundary);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.share-dialog-box a, 
+.share-dialog-copy {
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    background-color: #f0f0f0;
+    color: var(--color-secundary);
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+.share-dialog-box a:hover {
+    background-color: var(--color-primary);
+    color: var(--blanco);
+    text-decoration: none;
+}
+
+/* Estilo para la opción de Copiar Enlace */
+.share-dialog-copy {
+    border: 1px dashed var(--color-secundary);
+    font-weight: bold;
+}
+.share-dialog-copy:hover {
+    background-color: #e0e0e0;
+}
+
+.share-dialog-box button {
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    background-color: var(--color-secundary);
+    color: var(--blanco);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS PARA IMPRESIÓN (PDF) --- */
+/* ----------------------------------------------------------------- */
+
+@media print {
+    /* Ocultar elementos de navegación/interacción innecesarios en el PDF */
+    .site-header, /* Navbar y navegación principal */
+    .site-footer, /* Pie de página */
+    .header-metadata, /* Ocultamos la caja completa, excepto la línea de cierre si la tenías */
+    .download-row, /* Ocultamos el botón de descarga */
+    .comments-link, /* Ocultamos el contador de comentarios */
+    .share-action, /* Ocultamos el botón de compartir */
+    /* Aquí podrías añadir otros elementos como barras laterales si existen */
+    a[href]:after /* Oculta las URLs impresas al lado de los enlaces */
+    {
+        display: none !important;
+    }
+
+    /* Asegurar que el contenido del post ocupe todo el ancho */
+    .post-content,
+    .ladder-style-content,
+    .post-header {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0;
+        margin: 0;
+    }
+    
+    /* Asegurar que el título y el fondo verde del header se vean bien */
+    .post-header {
+        background-color: var(--color-primary) !important;
+        -webkit-print-color-adjust: exact; /* Fuerza la impresión del fondo */
+        color-adjust: exact;
+        padding: 1.5rem 0;
+    }
+
+    .post-title-header {
+        color: var(--blanco) !important;
+        padding: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Ajustes generales de texto para legibilidad en papel */
+    body {
+        font-size: 16pt;
+    }
+}

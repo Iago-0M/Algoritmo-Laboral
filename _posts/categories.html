@@ -1,0 +1,26 @@
+---
+layout: default
+title: Posts por Categoría
+permalink: /categorias/
+---
+
+<div class="category-index">
+  <h1>{{ page.title }}</h1>
+  
+  {% assign sorted_categories = site.categories | sort %}
+
+  {% for category in sorted_categories %}
+    {% assign category_name = category | first %}
+    {% assign posts = category | last %}
+    
+    <h2 id="{{ category_name | slugify }}">{{ category_name }} ({{ posts | size }})</h2>
+    
+    <ul class="category-post-list">
+      {% for post in posts %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+    
+    <hr>
+  {% endfor %}
+</div>

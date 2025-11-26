@@ -1,0 +1,160 @@
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS DE LA PÁGINA SOBRE MÍ (about.html) --- */
+/* ----------------------------------------------------------------- */
+
+.about-page {
+    padding: 20px;
+
+    /* Centrado similar al de contacto.html */
+    @media (min-width: 900px) {
+        max-width: 1000px;
+        margin: 0 auto; 
+        padding: 40px 20px;
+    }
+}
+
+.about-content-card {
+    background-color: var(--blanco);
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+    line-height: 1.7;
+    
+    /* 💥 MODIFICACIÓN CRUCIAL: Centra todos los elementos internos (incluido el H2 inline-block) */
+    text-align: center; 
+}
+
+/* 💥 RESTABLECER ALINEACIÓN: Asegura que los párrafos y listas NO estén centrados */
+.about-content-card p,
+.about-content-card hr,
+.timeline-section,
+.timeline-item,
+.pull-quote {
+    text-align: left; 
+}
+
+
+.page-heading {
+    /* Mantenemos el estilo del título h1 */
+    color: var(--color-primary);
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    text-align: center; /* Mantener centrado */
+    margin-bottom: 2rem;
+    color: var(--color-secundary);
+}
+
+/* ------------------- AJUSTE DE TÍTULOS DE SECCIÓN (H2) ------------------- */
+/* El h2 se centrará ahora por el text-align: center del padre (.about-content-card) */
+.section-title {
+    /* Estilo para h2 */
+    color: var(--color-secundary);
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 2rem auto 1rem auto; 
+    border-bottom: 2px solid var(--color-primary);
+    
+    /* Crucial: Hace que el borde abarque solo el ancho del texto */
+    display: inline-block; 
+    padding-bottom: 5px;
+}
+
+/* ------------------- ESTILOS DE LA LÍNEA DE TIEMPO (TIMELINE) ------------------- */
+
+.timeline-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.timeline-item i {
+    font-size: 1.8rem;
+    min-width: 30px; 
+    text-align: center;
+    padding-top: 5px;
+}
+
+.icon-judicial {
+    color: var(--color-primary);
+}
+
+.icon-tech {
+    color: var(--color-secundary);
+}
+
+.icon-focus {
+    color: var(--color-primary);
+}
+
+.item-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-secundary);
+    margin: 0;
+}
+
+.timeline-item p {
+    margin-top: 5px;
+    flex-grow: 1; 
+}
+
+/* ------------------- ESTILOS DE CITA (BLOCKQUOTE) ------------------- */
+
+.pull-quote {
+    background-color: #f0fff0; 
+    border-left: 5px solid var(--color-primary);
+    padding: 20px;
+    margin: 30px 0;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--color-secundary);
+}
+
+.pull-quote i.fa-quote-left {
+    color: var(--color-primary);
+    margin-right: 10px;
+    font-size: 1.3rem;
+}
+
+
+/* Adaptación a escritorio para una mejor presentación */
+@media (min-width: 768px) {
+    .timeline-section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 15px;
+        border-right: 1px solid var(--border-color); 
+    }
+    
+    .timeline-item:last-child {
+        border-right: none;
+    }
+
+    .timeline-item i {
+        margin-bottom: 10px;
+        min-width: auto;
+    }
+    
+    .item-title {
+        margin-bottom: 5px;
+    }
+}

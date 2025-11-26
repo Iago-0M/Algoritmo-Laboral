@@ -1,0 +1,111 @@
+/* --- DEFINICIÓN DE VARIABLES DE MARCA (Necesarias para compilar) --- */
+$primary: #008037;
+$white: white;
+$link-nav: #cccccc;
+$secondary: #3a3a3a; 
+
+
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS DEL NAVBAR (DISEÑO 1/3 Y 2/3 FINAL) --- */
+/* ----------------------------------------------------------------- */
+
+.site-header {
+  background-color: $primary; 
+  position: sticky !important; 
+  top: 0 !important;
+  z-index: 99999 !important; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 5px 0 !important; 
+  border: $secondary 10px solid !important;
+}
+
+/* 💥 CONTENEDOR PRINCIPAL: División 1/3 (Logo) y 2/3 (Contenido) */
+.site-header .wrapper {
+    display: flex !important;
+    align-items: stretch !important; 
+    justify-content: space-between !important;
+    line-height: 1 !important; 
+    margin: 0 auto !important; 
+    padding: 0 !important; 
+    min-height: 120px; /* Altura mínima del navbar para el logo */
+}
+
+/* 1. ESTILOS DEL LOGO (1/3) */
+.site-title.logo-container {
+    flex: 0 0 30% !important; 
+    display: flex;
+    align-items: center; 
+    justify-content: center !important; 
+    padding: 0 5px 0 0 !important;
+    
+}
+
+.site-logo {
+  
+    height: 150px !important; 
+    width: 150px !important; 
+    background-color: $secondary !important; 
+    border-radius: 50% !important; 
+    border-color:$secondary !important; 
+    object-fit: contain !important; 
+    border: none !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2. ESTILOS DEL CONTENIDO (2/3) */
+.site-content-wrapper {
+    flex: 0 0 70% !important; 
+    display: flex !important;
+    flex-direction: column !important; 
+    justify-content: flex-start !important; 
+    padding: 5px 0 !important; 
+}
+
+/* TÍTULO DEL BLOG */
+.site-title-text {
+    text-align: center !important; 
+    color: $secondary !important;
+    text-decoration: none;
+    font-size: 2.8em !important;
+    font-family: "LXGWWenKai-Blod", sans-serif !important; 
+    font-weight: bold !important;
+    margin-top: 20px !important; 
+    margin-bottom: 5px !important; 
+}
+
+/* ENLACES DE NAVEGACIÓN (2/3 INFERIOR) */
+.site-nav {
+    text-align: center !important; 
+    color: $white;
+    margin: 0 !important; 
+    padding: 0 !important;
+    margin-top: auto !important;
+}
+
+.page-link, .page-link:visited {
+    color:$white !important;
+    padding: 0 10px !important; 
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1.2em;
+    
+}
+
+.page-link:hover {
+  color: $secondary !important;
+  font-weight: bold !important;
+}
+
+/* --- AJUSTE VISIBILIDAD DE TRIGGER MÓVIL --- */
+@media screen and (min-width: 800px) {
+    .nav-trigger, .site-header label[for="nav-trigger"] {
+        display: none !important;
+    }
+    .site-nav .trigger {
+        display: block !important; 
+        display: flex !important; 
+        justify-content: center !important; 
+        align-items: flex-end !important;
+    }
+}
