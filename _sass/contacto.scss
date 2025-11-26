@@ -123,12 +123,9 @@
 .input-field {
     position: relative;
     margin-bottom: 25px;
-    border: 3px solid $secondary;
+    border: 3px solid var(--color-secundary);
 }
-.input #name {
-    margin:auto;
-    color:red;
-    border: 3px solid $secondary;}
+
 
 /* Estilo base para Input y Textarea */
 .input-field input, 
