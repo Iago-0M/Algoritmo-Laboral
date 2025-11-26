@@ -198,7 +198,7 @@
         font-size: inherit; 
         color: var(--color-primary);
         text-decoration: none;
-        &:hover { color: darken($primary, $lightness: -10%); }
+        &:hover { color: darken($primary, 10%); }
     }
 }
 
@@ -290,5 +290,5 @@ h3.post-subtitle {
     border: none; border-radius: 0;
     font-size: 0.9em; font-weight: bold;
     transition: color 0.2s ease;
-    &:hover { color: darken($primary, $lightness: -10%) !important; background-color: transparent; } 
+    &:hover { color: darken($primary, 10%) !important; background-color: transparent; } 
 }
