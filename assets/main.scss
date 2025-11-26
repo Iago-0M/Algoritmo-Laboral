@@ -54,7 +54,3 @@ body {
 @import "post";
 @import "card_post"; 
 @import "footer";
-
-// ❌ CORRECCIÓN FONT AWESOME: La importación SCSS ha sido eliminada.
-// La incluiremos vía CDN para evitar errores de compilación.
-// @import "font-awesome"; // <-- ELIMINADA ESTA LÍNEA

@@ -1,6 +1,6 @@
 /* Archivo: _sass/_custom-layout.scss - CÓDIGO MOVIDO DE custom.scss */
 
-@use "sass:math"; // ✅ Importar el módulo math para resolver las advertencias slash-div
+
 
 /* ----------------------------------------------------------------- */
 /* --- ANULACIÓN DE FUENTES Y ALTURA DE LÍNEA (Usando variables definidas) --- */
@@ -16,5 +16,5 @@ body {
 /* ----------------------------------------------------------------- */
 @mixin relative-font-size($font-size-factor) {
   // Versión compatible con Dart Sass
-  font-size: math.div($base-font-size, 16px) * 1rem * $font-size-factor; 
+  font-size: ($base-font-size / 16px) * 1rem * $font-size-factor;
 }
