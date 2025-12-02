@@ -18,7 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Algoritmo Laboral
+title: Algoritmo Laboral | Abogado Laboral y Penal en Vigo
 email: iago.otero.moreiras@gmail.com
 description: Soy Iago Otero, abogado en Vigo. En este blog, ofrezco análisis concisos y prácticos sobre la actualidad del Derecho Penal y Laboral. Mi objetivo es darte la información legal que necesitas, sin rodeos.
 baseurl: "/Algoritmo-Laboral" 
