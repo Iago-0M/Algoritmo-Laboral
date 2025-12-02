@@ -109,3 +109,92 @@ $secondary: #3a3a3a;
         align-items: flex-end !important;
     }
 }
+
+/* ----------------------------------------------------------------- */
+/* --- ESTILOS HAMBURGUESA Y MOBILE (< 800px) --- */
+/* ----------------------------------------------------------------- */
+
+// Ocultar el checkbox por defecto
+.nav-trigger {
+    display: none;
+}
+
+/* --- ESTILO DEL ICONO (LA BARRA HAMBURGUESA) --- */
+.site-header label[for="nav-trigger"] {
+    cursor: pointer;
+    order: 2; /* Para que quede a la derecha del logo */
+    padding: 10px 0;
+    
+    // Ocultar en escritorio (Desktop-First)
+    display: none; 
+
+    .menu-icon i {
+        font-size: 2em;
+        color: $white;
+        transition: transform 0.3s;
+    }
+}
+
+/* --- LÓGICA DE VISIBILIDAD DE MENÚ --- */
+
+@media screen and (max-width: 800px) {
+    
+    /* Mostrar el icono hamburguesa */
+    .site-header label[for="nav-trigger"] {
+        display: block; 
+    }
+    
+    /* Reorganizar el header para que el logo y el botón queden en la misma fila */
+    .site-header .wrapper {
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        align-items: center !important; 
+        min-height: auto;
+        padding: 15px 20px !important;
+    }
+    
+    /* Ocultar el contenedor de navegación por defecto */
+    .site-content-wrapper {
+        display: none !important;
+        /* Ocupa todo el ancho para la lista de enlaces */
+        flex: 0 0 100% !important; 
+        flex-direction: column;
+        background-color: $secondary; /* Fondo oscuro para contraste */
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Mostrar el menú cuando el checkbox está activado */
+    #nav-trigger:checked ~ .site-content-wrapper {
+        display: flex !important;
+    }
+    
+    /* --- Estilos de los enlaces individuales --- */
+    .site-nav {
+        width: 100%;
+        text-align: left !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+    }
+
+    .page-link, .page-link:visited {
+        display: block;
+        padding: 15px 20px !important;
+        border-bottom: 1px solid $link-nav; /* Borde sutil entre enlaces */
+        color: $white !important;
+        font-size: 1.2em;
+        
+        &:hover {
+            // Usamos darken() que ya fue corregido anteriormente
+            background-color: darken($secondary, 5%);
+        }
+    }
+
+    /* Ocultar el contenedor de contenido en desktop para no interferir */
+    .site-content-wrapper {
+        @media screen and (min-width: 801px) {
+            display: flex !important;
+            flex: 0 0 70% !important; 
+            flex-direction: column !important;
+        }
+    }
+}

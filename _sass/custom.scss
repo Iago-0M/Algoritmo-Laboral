@@ -63,17 +63,3 @@ body {
 }
 
 
-/* ----------------------------------------------------------------- */
-/* --- Estilos de Layout --- */
-/* ----------------------------------------------------------------- */
-
-/* Oculta el menú hamburguesa en escritorio (Desktop-first) */
-@media screen and (min-width: 800px) {
-    .nav-trigger, .site-header label[for="nav-trigger"] {
-        display: none !important;
-    }
-
-    .site-nav .trigger {
-        display: block !important; 
-    }
-}
