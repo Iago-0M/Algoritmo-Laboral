@@ -1,11 +1,4 @@
-// Archivo: _sass/footer.scss
 
-/*
- * Estilos personalizados para el Footer
- * * NOTA IMPORTANTE: Se asume que has incluido la definición de variables 
- * ($secondary, $white, $spacing-unit, etc.) y el mixin `relative-font-size` 
- * en la parte superior de _sass/custom.scss para evitar el error de compilación.
-*/
 
 .site-footer {
     background-color: $secondary; /* Fondo Gris Oscuro Principal */
@@ -44,15 +37,7 @@
         }
     }
     
-    // Estilo para los iconos SVG (contacto y redes)
-    .svg-icon {
-        fill: $primary; 
-        margin-right: 10px;
-        width: 16px; 
-        height: 16px;
-        min-width: 16px; 
-    }
-
+    
     // Estilo para los elementos de lista de Contacto
     .contact-list li {
       margin-bottom: 0.5em; 
@@ -143,3 +128,49 @@
         justify-content: center; 
     }
 }
+
+
+/* --- ESTILOS PARA ICONOS SOCIALES EN FOOTER --- */
+.social-media-list.fa-icons {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    &::before, &::after {
+        content: none !important; 
+        display: none !important;
+    }
+    
+    li {
+        margin-right: 15px; 
+        &::before, &::after {
+        content: none !important; 
+        display: none !important;
+    }
+    }
+
+    a {
+        text-decoration: none;
+        color: $white; 
+        &::before, &::after {
+            content: none !important;
+            display: none !important;
+        }
+        &:hover {
+            color: $primary;
+            font-size: 1.8em;
+        }
+    }
+    
+    /* Estilo del Icono Font Awesome */
+    i.fa-brands {
+        font-size: 1.5em;
+        font-family: 'Font Awesome 6 Brands' !important; 
+        font-weight: 400 !important; 
+        display: inline-block
+    }
+    
+}
+
