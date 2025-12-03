@@ -34,8 +34,8 @@ $secondary: #3a3a3a;
     flex: 0 0 30% !important; 
     display: flex;
     align-items: center; 
-    justify-content: center !important; 
-    padding: 0 5px 0 0 !important;
+    justify-content: flex-start !important; 
+    padding: 0 0 0 15px !important;
     z-index: 20;
 }
 
@@ -163,7 +163,6 @@ $secondary: #3a3a3a;
     /* F. Lógica del Menú Desplegable (SOLUCIÓN FLOTANTE) */
     .site-nav .trigger {
         display: none; 
-        
         position: absolute;
         top: 100%; 
         left: 0;

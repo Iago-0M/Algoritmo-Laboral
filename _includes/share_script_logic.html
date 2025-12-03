@@ -1,70 +1,75 @@
 <script>
-    // --- CÓDIGO NUEVO PARA COMPARTIR ---
+    // --- CÓDIGO FINAL PARA COMPARTIR ---
     
-    const shareButton = document.getElementById('share-action-button');
-    
-    if (shareButton && navigator.share) {
-        // Opción 1: Usar la API nativa de Web Share (la más limpia)
-        shareButton.addEventListener('click', async () => {
-            try {
-                const url = shareButton.getAttribute('data-url');
-                const title = shareButton.getAttribute('data-title');
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // 1. Obtener TODOS los botones por su CLASE
+        const shareButtons = document.querySelectorAll('.share-action-button');
+        shareButtons.forEach(shareButton => {
+            
+            // Obtener los datos del botón individual
+            const url = shareButton.getAttribute('data-url');
+            const title = shareButton.getAttribute('data-title');
+            
+            // 2. Adjuntar el evento de clic a CADA botón
+            shareButton.addEventListener('click', () => {
                 
-                await navigator.share({
-                    title: title,
-                    url: url
-                });
-            } catch (err) {
-                // Si falla o se cancela, no hacemos nada
-            }
-        });
-    } else if (shareButton) {
-        // Opción 2: Usar ventana emergente de enlaces personalizados (Fallback)
-        shareButton.addEventListener('click', () => {
-            const postUrl = shareButton.getAttribute('data-url');
-            const postTitle = shareButton.getAttribute('data-title');
-            
-            // Codificar URL y Título para usarlos en enlaces
-            const encodedUrl = encodeURIComponent(postUrl);
-            const encodedTitle = encodeURIComponent(postTitle);
+                // --- Lógica de la API Nativa (Prioridad) ---
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        url: url,
+                    }).catch(err => console.log('Share API error:', err));
+                } else {
+                    // --- Lógica del Fallback Modal ---
+                    
+                    const encodedUrl = encodeURIComponent(url);
+                    const encodedTitle = encodeURIComponent(title);
 
-            const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}&via={{ site.twitter_username }}`;
-            const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`;
-            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`;
-            const copyFunction = `navigator.clipboard.writeText('${postUrl}')`;
+                    // Definir la función de copiar y los enlaces
+                    const copyFunction = `
+                        navigator.clipboard.writeText('${url}')
+                            .then(() => { alert('¡Enlace copiado!'); closeShareDialog(); })
+                            .catch(err => console.error('Error al copiar:', err));
+                    `;
+                    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}&via={{ site.twitter_username }}`;
+                    const linkedInUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`;
+                    const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`;
+                    
+                    // HTML del diálogo de compartir (Modal)
+                    const shareDialogHtml = `
+                        <div class="share-dialog-overlay" onclick="closeShareDialog(event)">
+                            <div class="share-dialog-box" onclick="event.stopPropagation()">
+                                <h3>Compartir Artículo</h3>
+                                <p class="share-dialog-copy" onclick="${copyFunction}">
+                                    <i class="fa-solid fa-copy"></i> Copiar Enlace
+                                </p>
+                                <a href="${twitterUrl}" target="_blank" onclick="window.open(this.href,'_blank','width=600,height=400'); closeShareDialog(); return false;">
+                                    <i class="fa-brands fa-twitter"></i> Twitter
+                                </a>
+                                <a href="${linkedInUrl}" target="_blank" onclick="window.open(this.href,'_blank','width=600,height=400'); closeShareDialog(); return false;">
+                                   <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                                </a>
+                                <a href="${whatsappUrl}" target="_blank" onclick="closeShareDialog()">
+                                    <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                                </a>
+                                <button onclick="closeShareDialog()">Cerrar</button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Añadir el diálogo al cuerpo
+                    document.body.insertAdjacentHTML('beforeend', shareDialogHtml);
+                }
+            });
+        }); 
+    }); 
 
-            // HTML del diálogo de compartir
-            const shareDialogHtml = `
-                <div class="share-dialog-overlay" onclick="closeShareDialog(event)">
-                    <div class="share-dialog-box" onclick="event.stopPropagation()">
-                        <h3>Compartir Artículo</h3>
-                        <p class="share-dialog-copy" onclick="${copyFunction}; alert('¡Enlace copiado!'); closeShareDialog()">
-                            <i class="fa-solid fa-copy"></i> Copiar Enlace
-                        </p>
-                        <a href="${twitterUrl}" target="_blank" onclick="window.open(this.href,'_blank','width=600,height=400'); return false;">
-                            <i class="fa-brands fa-twitter"></i> Twitter
-                        </a>
-                        <a href="${linkedInUrl}" target="_blank" onclick="window.open(this.href,'_blank','width=600,height=400'); return false;">
-                            <i class="fa-brands fa-linkedin"></i> LinkedIn
-                        </a>
-                        <a href="${whatsappUrl}" target="_blank">
-                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                        </a>
-                        <button onclick="closeShareDialog()">Cerrar</button>
-                    </div>
-                </div>
-            `;
-            
-            // Añadir el diálogo al cuerpo
-            document.body.insertAdjacentHTML('beforeend', shareDialogHtml);
-        });
-    }
-
-    // Función global para cerrar el diálogo
+    // Función global para cerrar el diálogo (DEBE QUEDAR FUERA del DOMContentLoaded)
     window.closeShareDialog = function(event) {
         const overlay = document.querySelector('.share-dialog-overlay');
         if (overlay) {
-            // Solo cerrar si se hace clic en el overlay o en el botón "Cerrar"
+            // Se añaden más condiciones para asegurar el cierre al hacer clic fuera de la caja
             if (!event || event.target === overlay || event.target.tagName === 'BUTTON') {
                 overlay.remove();
             }

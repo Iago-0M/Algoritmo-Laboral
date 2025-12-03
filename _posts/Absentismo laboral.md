@@ -2,11 +2,11 @@
 layout: post
 title: "Absentismo laboral"
 subtitle: "Más alla de la baja médica"
-date: 2025-11-30 15:30:00 +0100
+date: 2025-12-04 15:30:00 +0100
 icon: hand-holding-medical
 author: Iago Otero
 category: Laboral
-tags: [laboral,abogado, baja medica, abasentismo,abogado]
+tags: [laboral,abogado, baja medica, abasentismo,abogado,vigo]
 ---
 
 ### 1. Introducción: El Absentismo como Coste Oculto 📉
