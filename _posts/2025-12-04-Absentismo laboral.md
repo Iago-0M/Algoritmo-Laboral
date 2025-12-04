@@ -2,7 +2,7 @@
 layout: post
 title: "Absentismo Laboral: De la Picaresca a la Prevención Estratégica"
 subtitle: "Por qué invertir en salud mental y CVL es la única vía rentable para su empresa"
-date: 2025-12-04 15:30:00 +0100
+date: 2025-12-04 10:30:00 +0100
 icon: hand-holding-medical
 author: Iago Otero
 category: Laboral
