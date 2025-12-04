@@ -6,7 +6,7 @@ date: 2025-11-30 15:30:00 +0100
 icon: hand-holding-medical
 author: Iago Otero
 category: Laboral
-tags:[laboral,abogado,baja medica, absentismo,salud laboral,vigo,CVL]
+tags: [laboral,abogado,baja medica, absentismo,salud laboral,vigo,CVL]
 ---
 
 ## 1. Introducción: Absentismo, el Alto Coste de Mirar hacia Otro Lado 📉
