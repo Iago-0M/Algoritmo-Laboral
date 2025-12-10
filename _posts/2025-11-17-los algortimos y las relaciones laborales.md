@@ -6,7 +6,7 @@ date: 2025-11-17 15:30:00 +0100
 icon: robot
 author: Iago Otero
 category: Laboral
-tags: [laboral,abogado, algoritmos, IA, transparencia, sesgos]
+tags: [laboral,abogado, algoritmos, IA, transparencia, sesgos, vigo]
 ---
 
 ### 1. Introducción: La Clave Oculta de la “Ley Rider” y el Futuro Europeo

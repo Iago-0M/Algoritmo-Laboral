@@ -6,7 +6,7 @@ date: 2025-10-15 15:30:00 +0100
 icon: helmet-safety
 author: Iago Otero
 category: Penal
-tags: [laboral,penal, riesgos laborals,delito,trabajadores,abogado]
+tags: [laboral,penal, riesgos laborals,delito,trabajadores,abogado,vigo]
 ---
 
 ### 1.Introducción

@@ -4,3 +4,4 @@ source "https://rubygems.org"
 # Esto garantiza que todas las dependencias sean compatibles
 # con el entorno de despliegue.
 gem "github-pages", group: :jekyll_plugins
+gem "jekyll-paginate"

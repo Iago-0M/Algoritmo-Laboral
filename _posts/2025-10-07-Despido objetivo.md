@@ -6,7 +6,7 @@ date: 2025-10-07 15:30:00 +0100
 icon: chart-line 
 author: Iago Otero
 category: Laboral
-tags: [laboral,despido,despido objetivo,abogado]
+tags: [laboral,despido,despido objetivo,abogado, vigo]
 ---
 ### 1. Introducción
 En el complejo panorama del derecho laboral, el **despido objetivo** es una de las modalidades más comunes, pero a menudo también una de las más confusas y controvertidas. Entender qué es, cuándo se aplica y cuáles son sus requisitos y consecuencias es fundamental, tanto si eres un **trabajador** que lo sufre como si eres un **empresario** que necesita aplicarlo correctamente.

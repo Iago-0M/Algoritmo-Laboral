@@ -6,7 +6,7 @@ date: 2025-10-01 15:30:00 +0100
 author: Iago Otero
 icon: triangle-exclamation
 category: Laboral
-tags: [laboral,despido,abogado]
+tags: [laboral,despido,abogado,vigo]
 ---
 
 ### 1. Introducción

@@ -1,21 +1,24 @@
 ---
-layout: default
+layout: default 
 title: Abogado Laboral y Derecho Penal en Vigo | Algoritmo Laboral
 description: Asesoramiento legal experto en Derecho Laboral y Penal en Vigo. Encuentra análisis concisos y soluciones prácticas a tus problemas legales. ¡Contacta hoy!
 keywords: "abogado laboral vigo, derecho penal, iago otero, abogado laboralista, leyes laborales, asesoramiento legal, Vigo,despido,indemnizacion, baja laboral, absentismo"
+list_title: "Últimos Artículos" 
+# ELIMINAR: pagination: enabled: true
 ---
 
 <div class="home">
   {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+    <h1 class="page-heading">{% comment %} {{ page.title }} {% endcomment %}</h1>
   {%- endif -%}
-
-  {{ content }}
+  
+  {% comment %} **IMPORTANTE:** El bucle de paginación DEBE estar aquí directamente. {% endcomment %}
 
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Últimos Artículos" }}</h2>
     <ul class="post-list">
-    {% for post in paginator.posts %}
+    
+    {% for post in site.posts %}
       
       <li class="post-item">
         
@@ -35,30 +38,24 @@ keywords: "abogado laboral vigo, derecho penal, iago otero, abogado laboralista,
                   <span class="meta-month">{{ post.date | date: "%b" }}</span>
               </span>
               
-              {% assign category_name = post.categories | first | default: post.category %}\
+              {% assign category_name = post.categories | first | default: post.category %}
               {% if category_name %}
-                  {% comment %} LÓGICA DE CLASE PARA COLORES CONDICIONALES {% endcomment %}
                   {% assign category_class = "" %}
-                  {% if category_name contains "Penal" %}
-                      {% assign category_class = "category-penal" %}
-                  {% endif %}
-                  
+                  {% if category_name contains "Penal" %}{% assign category_class = "category-penal" %}{% endif %}
                   <span class="meta-category-tag {{ category_class }}">
                       {{ category_name | capitalize }}
                   </span>
               {% endif %}
-              
             </div>
           {% endif %}
           
-          {% comment %} 2. CONTENIDO DE TEXTO (Pie de tarjeta) {% endcomment %}
-          <div class="post-content-summary">
+          <div class="post-card-content">
             
-            <div class="post-status-line">
-                
+            <div class="card-header-meta">
+              
+              <div class="post-status-line">
                 {% assign words = post.content | number_of_words %}
                 {% assign reading_time = words | divided_by: 180 | plus: 1 %}
-                
                 <span class="reading-time">
                     <i class="fas fa-clock"></i> {{ reading_time }} min
                 </span>
@@ -73,6 +70,8 @@ keywords: "abogado laboral vigo, derecho penal, iago otero, abogado laboralista,
                       <i class="fa-solid fa-share-alt"></i> 
                     </span>
                 
+            </div>
+            
             </div>
             
             <div class="card-footer-meta">
@@ -98,9 +97,10 @@ keywords: "abogado laboral vigo, derecho penal, iago otero, abogado laboralista,
         
     {% endfor %}
     </ul>
-    {% include pagination.html %}
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+    
+    
   {%- endif -%}
   
-{% include share_script_logic.html %}
 </div>
+
+{% include share_script_logic.html %}

@@ -78,12 +78,33 @@
     font-size: 2.5em; 
 }
 
+.post-card-content .card-footer-meta .post-title-card {
+   
+    margin: 0 !important; 
+    padding: 0 !important;
+    line-height: 1.2 !important; /* Valor ligeramente más bajo que 1.25 */
+    font-size: 1.5rem; /* Ajusta este valor si tu fuente es más grande o pequeña */
+}
+
+.post-card-content .card-footer-meta .post-title-card .post-link {
+    line-height: 1.2 !important;
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+}
+
 .post-subtitle-header {
     color: var(--blanco);
     margin-top: 0;
     margin-bottom: 2rem;
-    font-size: 1.5em; 
+    font-size: 1em; 
     font-weight: 400;
+}
+.post-subtitle{
+    font-size: 1em !important;
+    color: var(--color-secundary);
+    margin-top: 0.5rem;
 }
 
 /* ----------------------------------------------------------------- */
@@ -104,20 +125,19 @@
 /* ----------------------------------------------------------------- */
 
 .post-title-header {
-    /* Título: Usa la variable de título, pero aseguramos el color $secondary */
     color: var(--blanco); 
     margin-top: 0;
     margin-bottom: 0.5rem;
-    font-size: 2.5em; 
-    /* Hereda font-family y font-weight de las reglas h1 generales */
+    font-size: 2em; 
+   
 }
 
 .post-subtitle-header {
-    /* Subtítulo */
+   
     color: var(--blanco);
     margin-top: 0;
     margin-bottom: 2rem;
-    font-size: 1.5em; 
+    font-size: 0.5em; 
     font-weight: 400;
 }
 

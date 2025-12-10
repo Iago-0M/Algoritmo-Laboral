@@ -7,7 +7,7 @@ image: /assets/img/post/despido_baja_medica.png
 icon: house-medical-circle-xmark
 author: Iago Otero
 category: Laboral
-tags: [laboral,despid, baja, despido nulo, abogado]
+tags: [laboral,despid, baja, despido nulo, abogado, vigo]
 ---
 
 ### 1. Absentismo por IT y Despido: La Tensión entre Empresa y Trabajador
