@@ -38,13 +38,21 @@ header_pages:
     url: /contacto.html
   # - title: Proyectos
   #   url: /proyectos.html
-
+pagination:
+  enabled: true
+  per_page: 6             
+  # <--- Muestra 6 artículos por página
+  permalink: '/page/:num/' # <--- La URL será /page/2/, /page/3/, etc.
+  limit: 0 # Usar 0 para incluir todos los posts
+  # Excluir las categorías que no quieres paginar (opcional)
+  # exclude: ['un-categorized']
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate-v2
 
 
 # --- Front Matter Defaults ---

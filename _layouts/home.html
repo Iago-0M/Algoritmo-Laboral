@@ -15,7 +15,7 @@ keywords: "abogado laboral vigo, derecho penal, iago otero, abogado laboralista,
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Últimos Artículos" }}</h2>
     <ul class="post-list">
-    {% for post in site.posts limit: site.minima.show_posts %}
+    {% for post in paginator.posts %}
       
       <li class="post-item">
         
@@ -98,7 +98,7 @@ keywords: "abogado laboral vigo, derecho penal, iago otero, abogado laboralista,
         
     {% endfor %}
     </ul>
-
+    {% include pagination.html %}
     <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
   {%- endif -%}
   

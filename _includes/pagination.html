@@ -1,0 +1,39 @@
+{% if paginator.total_pages > 1 %}
+<div class="pager">
+  <ul class="pagination-list">
+    
+    {% if paginator.previous_page %}
+      <li class="previous">
+        <a href="{{ paginator.previous_page_path | relative_url }}" class="previous-link">&larr; Más Recientes</a>
+      </li>
+    {% else %}
+      <li class="previous disabled">
+        <span>&larr; Más Recientes</span>
+      </li>
+    {% endif %}
+
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <li class="current">
+          <span class="page-number">{{ page }}</span>
+        </li>
+      {% else %}
+        <li>
+          <a href="{{ paginator.page_path | replace: ':num', page | relative_url }}" class="page-number-link">{{ page }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    
+    {% if paginator.next_page %}
+      <li class="next">
+        <a href="{{ paginator.next_page_path | relative_url }}" class="next-link">Más Antiguos &rarr;</a>
+      </li>
+    {% else %}
+      <li class="next disabled">
+        <span>Más Antiguos &rarr;</span>
+      </li>
+    {% endif %}
+
+  </ul>
+</div>
+{% endif %}
