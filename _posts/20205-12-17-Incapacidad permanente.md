@@ -2,7 +2,7 @@
 layout: post 
 title: "Bajas Médicas: El INSS no puede denegarte el pago de forma arbitraria (Sentencia TS 527/2023)" 
 subtitle: "El Tribunal Supremo pone límites al INSS: la denegación de la prestación tras agotar los 545 días debe ser motivada y objetiva." 
-date: 2025-12-17 10: +0100 
+date: 2025-12-17 10:30 +0100 
 icon: shield-alt 
 author: Iago Otero 
 category: Seguridad Social 
