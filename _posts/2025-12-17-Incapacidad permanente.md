@@ -3,7 +3,7 @@ layout: post
 title: "Recaída tras 18 meses de baja: El Supremo pone límites al INSS."
 subtitle: "El INSS ya no puede suspender su prestación sin una evaluación médica real." 
 date: 2025-12-17 10:30:00 +0100 
-icon: shield-alt 
+icon: balance-scale
 author: Iago Otero 
 category: Seguridad Social 
 tags: [Incapacidad Temporal, INSS, Bajas Médicas, Sentencia TS, jurisprudencia,abogado,vigo]
