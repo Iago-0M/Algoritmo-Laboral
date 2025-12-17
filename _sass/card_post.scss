@@ -141,12 +141,22 @@
     color: $secondary; 
 }
 
+/* --- ESTILO ESPECÍFICO PARA SEGURIDAD SOCIAL --- */
+
+.meta-category-tag.category-seguridad-social {
+    background-color: $white;   
+    color: $primary;           
+    border: 1px solid $primary; 
+    font-weight: 600;
+}
+
 /* ESTILO CONDICIONAL: CATEGORÍA PENAL */
 .meta-category-tag.category-penal {
     background-color: $secondary;
     color: $white;
     border-color: $secondary;
 }
+
 
 /* ----------------------------------------------------------------- */
 /* --- Sección de Contenido de Texto (post-content-summary) --- */
