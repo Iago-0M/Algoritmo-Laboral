@@ -134,11 +134,13 @@
     padding: 4px 8px;
     font-weight: bold; font-size: 0.9em;
     text-transform: uppercase; border-radius: 4px; z-index: 10;
-    border: 1px solid $border-light; 
+   
 
     /* COLORES POR DEFECTO (Laboral/General) */
     background-color: $white; 
     color: $secondary; 
+    border: 3px solid $secondary;  
+   
 }
 
 /* --- ESTILO ESPECÍFICO PARA SEGURIDAD SOCIAL --- */
@@ -146,15 +148,16 @@
 .meta-category-tag.category-seguridad-social {
     background-color: $white;   
     color: $primary;           
-    border: 1px solid $primary; 
-    font-weight: 600;
+    
+   
 }
 
 /* ESTILO CONDICIONAL: CATEGORÍA PENAL */
 .meta-category-tag.category-penal {
     background-color: $secondary;
     color: $white;
-    border-color: $secondary;
+    border: 3px solid $white; 
+   
 }
 
 

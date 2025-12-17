@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: "Recaída tras 18 meses de baja: El Supremo pone límites al INSS
+title: "Recaída tras 18 meses de baja: El Supremo pone límites al INSS."
 subtitle: "El INSS ya no puede suspender su prestación sin una evaluación médica real." 
 date: 2025-12-17 10:30:00 +0100 
 icon: shield-alt 

@@ -42,7 +42,7 @@ list_title: "Últimos Artículos"
               {% if category_name %}
                   {% assign category_class = "" %}
                   {% if category_name contains "Penal" %}{% assign category_class = "category-penal" %}{% endif %}
-                  <span class="meta-category-tag {{ category_class }}">
+                  <span class="meta-category-tag category-{{ category_name | slugify }}">
                       {{ category_name | capitalize }}
                   </span>
               {% endif %}
