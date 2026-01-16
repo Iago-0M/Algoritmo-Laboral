@@ -6,7 +6,7 @@ date: 2026-01-16 10:30:00 +0100
 author: Iago Otero
 icon: dolly
 category: Laboral
-tags: [laboral,PRL,prevención,,reforma,abogado,vigo]
+tags: [laboral,PRL,prevención,reforma,abogado,vigo]
 ---
 
 La **Ley 31/1995 de Prevención de Riesgos Laborales** ha cumplido 30 años. Durante tres décadas ha sido el pilar de la seguridad en España, pero el mundo laboral de 1995 poco tiene que ver con la realidad actual.
